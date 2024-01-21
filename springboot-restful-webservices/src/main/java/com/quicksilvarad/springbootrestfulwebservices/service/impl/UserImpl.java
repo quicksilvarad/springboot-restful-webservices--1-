@@ -13,6 +13,8 @@ import org.hibernate.NonUniqueObjectException;
 import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
 import java.sql.*;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +26,7 @@ import java.util.stream.Stream;
 public class UserImpl extends java.lang.Exception implements UserService{
     private UserRepository userRepository;
     private ModelMapper modelMapper;
+    private RestTemplate restTemplate;
     @Override
     public User createUser(User user) {
         return userRepository.save(user);
