@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.hibernate.NonUniqueObjectException;
 import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,9 +25,12 @@ import java.util.stream.Stream;
 @Service // To mark the class as a service
 @AllArgsConstructor // lombok annotation or creating parameterised constructor
 public class UserImpl extends java.lang.Exception implements UserService{
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
     private ModelMapper modelMapper;
-    private RestTemplate restTemplate;
+    //@Autowired
+    //private RestTemplate restTemplate;
     @Override
     public User createUser(User user) {
         return userRepository.save(user);
